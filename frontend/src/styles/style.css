@@ -1,0 +1,75 @@
+/* Reset styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ensure content is centered vertically */
+}
+
+/* Container for forms */
+.form-container {
+    background-color: wheat;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* Heading styles */
+h1,h2 {
+    text-align: center;
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Input styles */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Button styles */
+.btn {
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    padding: 8px 16px;
+}
+
+/* Sign out button */
+.sign-out-btn {
+    margin-top: 20px;
+    background-color: #ff4500; /* Orange color for sign out button */
+}
+
+/* Home page styles */
+.homepage {
+    max-width: 600px; /* Limit width to improve readability */
+    padding: 20px;
+    background-color: wheat;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+/* User data display */
+.user-data {
+    margin-top: 20px;
+}
