@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const router = require("./src/routes/userRoute");
+const userRouter = require("./src/routes/userRoute");
+const loginRouter = require("./src/routes/loginRoute");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -15,8 +16,17 @@ dotenv.config();
 mongoose.connect(`${process.env.MONGO_CONNECTION}`).then(() => console.log("Connectd to mongoDB")).catch((err) => console.log(err));
 
 //routing the path
-app.use('/api/users', router);
+app.use('/api/users', userRouter);
+app.use('/api', loginRouter);
 
-app.listen(PORT, () => {
-    console.log(`Server is running on Port ${PORT}`);
-})
+const start = async () => {
+    try {
+        app.listen(PORT, () => {
+            console.log(`Server is running on Port ${PORT}`);
+        })        
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+start();
