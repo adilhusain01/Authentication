@@ -1,4 +1,6 @@
 const User = require("../models/userModel.js");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
 const getUsers = async (req, res) => {
     try {
@@ -57,4 +59,30 @@ const deleteUser = async (req, res) => {
     }
 }
 
-module.exports = { getUsers, getUserById,  createUser, updateUser, deleteUser };
+const login =  async (req, res) => {
+    try {
+        const {username, password} = req.body;
+
+        if(!username || !password){
+            return res.status(400).json({message: 'Please provide username and password'});
+        }
+
+        //for demo
+        const id = new Date().getDate();
+
+        //small payload is good
+        const token = jwt.sign({id, username}, process.env.JWT_SECRET, {expiresIn: '30d'});
+
+        res.status(200).json({message: 'User created', token: token});
+    } catch (error) {
+        res.status(500).json({message: error.message});
+        
+    }
+}
+
+const dashboard =  async (req, res) => {
+    console.log(req.user.username, req.user.id);
+    res.status(200).json({message: `${req.user.username}`});
+}
+
+module.exports = { getUsers, getUserById,  createUser, updateUser, deleteUser, login, dashboard };
