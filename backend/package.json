@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon --exec babel-node app.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +18,10 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.1.2",
     "nodemon": "^3.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.9",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.23.9"
   }
 }
